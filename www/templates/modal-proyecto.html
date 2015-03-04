@@ -1,0 +1,22 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Crear Proyecto</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Proyect" ng-model="Proyecto.Nombre">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="proyecto.contraseña">
+            </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Confirm Password" ng-model="proyecto.contraseña">
+            </label>
+            <label class="item">
+                <button class="button button-block button-positive" ng-click="iniciarProyecto()"> Crear
+                </button>
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>
