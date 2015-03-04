@@ -99,7 +99,7 @@ angular.module('starter.services', [])
         var url = "https://proyectoscrumboard.azure-mobile.net/Proyectos";
 
         $http.defaults.headers.common = {
-            'X-ZUMO-APPLICATION': 'BRhCygIesoMFkJCuwIeuHuVLljRDWO94',
+            'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
             'Access-Control-Allow-Origin': '*'
 
         };
@@ -137,7 +137,7 @@ angular.module('starter.services', [])
     .factory('Tareas', function ($http, $q) {
         var url = "https://proyectoscrumboard.azure-mobile.net/Tareas";
         $http.defaults.headers.common = {
-            'X-ZUMO-APPLICATION': 'BRhCygIesoMFkJCuwIeuHuVLljRDWO94',
+            'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
             'Access-Control-Allow-Origin': '*'
 
         };
