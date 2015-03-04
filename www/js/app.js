@@ -36,7 +36,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         templateUrl: "templates/noLogin.html"
     })
 
-    // vista de registro de usuario
+    // vista de login de proyecto
         .state('noLogin.login', {
             url: '/login',
             views: {
@@ -46,6 +46,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                 }
             }
         })
+
+      .state('noLogin.registro', {
+          url: '/registro',
+          views: {
+              'loginView': {
+                  templateUrl: 'templates/registro.html',
+                  controller: 'RegistroCtrl'
+              }
+          }
+      })
+
 
     // vista abstracta tarea
     .state('tasks', {
