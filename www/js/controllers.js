@@ -1,6 +1,7 @@
 angular.module('starter.controllers', [])
 
-    .controller('LoginCtrl', function($scope,$ionicLoading,$ionicPopup,$state,$ionicPlatform,Usuarios,Conexion) {
+    .controller('LoginCtrl', function($scope,$ionicLoading,$ionicPopup,$state,$ionicPlatform,Proyectos,Conexion) {
+
         $scope.proyecto={};
 
         $scope.iniciarSesion=function(){
@@ -52,14 +53,14 @@ angular.module('starter.controllers', [])
         });
 
     })
-/*
+
     .controller('RegistroCtrl', function($scope,$http,$state,$ionicLoading,$ionicPopup) {
         $scope.proyecto={};
 
         $scope.registro=function(){
             var url="https://proyectoscrumboard.azure-mobile.net/Proyectos";
             $http.defaults.headers.common={
-                'X-ZUMO-APPLICATION':'BRhCygIesoMFkJCuwIeuHuVLljRDWO94',
+                'X-ZUMO-APPLICATION':'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
                 'Access-Control-Allow-Origin':'*'
 
             };
@@ -82,7 +83,7 @@ angular.module('starter.controllers', [])
 
                     });
 
-                 //   $state.go("noLogin.login");
+                    $state.go("noLogin.login");
 
                 }
                 ,
@@ -102,7 +103,7 @@ angular.module('starter.controllers', [])
         }
 
     })
-
+/*
     .controller('BlocsCtrl', function($scope,Tareas,Bbdd,Conexion) {
         $scope.Tareas=[];
 
@@ -170,7 +171,7 @@ angular.module('starter.controllers', [])
 
     })
 */
-.controller('DashCtrl', function($scope) {})
+//.controller('LoginCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   $scope.chats = Chats.all();
