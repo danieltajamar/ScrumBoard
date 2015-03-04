@@ -1,0 +1,42 @@
+<ion-modal-view>
+    <ion-header-bar>
+        <h1 class="title">Crear Task</h1>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input">
+                <input type="text" placeholder="Task name" ng-model="Tarea.Nombre">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Description" ng-model="Tarea.Descripcion">
+            </label>
+
+            <label class="item item-input item-select">
+            <div class="input-label">
+                Priority
+            </div>
+            <select>
+                <option>Blue</option>
+                <option>Green</option>
+                <option>Yellow</option>
+                <option>Red</option>
+            </select>
+            </label>
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    Estado
+                </div>
+                <select>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                </select>
+            </label>
+            <label class="item">
+                <button class="button button-block button-positive" ng-click="iniciarTarea()"> Crear
+                </button>
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>
