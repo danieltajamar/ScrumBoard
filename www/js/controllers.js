@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-/*    .controller('LoginCtrl', function($scope,$ionicLoading,$ionicPopup,$state,$ionicPlatform,Usuarios,Conexion) {
+    .controller('LoginCtrl', function($scope,$ionicLoading,$ionicPopup,$state,$ionicPlatform,Usuarios,Conexion) {
         $scope.proyecto={};
 
         $scope.iniciarSesion=function(){
@@ -52,7 +52,7 @@ angular.module('starter.controllers', [])
         });
 
     })
-
+/*
     .controller('RegistroCtrl', function($scope,$http,$state,$ionicLoading,$ionicPopup) {
         $scope.proyecto={};
 
