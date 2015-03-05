@@ -1,24 +1,18 @@
-<ion-view title="Nuevo Proyecto">
+<ion-view title="Registro">
     <ion-content>
         <div class="list">
-
-
             <label class="item item-input">
-                <input type="text" placeholder="Proyecto" ng-model="Proyecto.Nombre">
-            </label>
-            <label class="item item-input">
-                <input type="password" placeholder="Password" ng-model="Proyecto.Password"   >
+                <input type="text" placeholder="Nombre"  ng-model="proyecto.Nombre">
             </label>
 
-
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="proyecto.Password">
+            </label>
             <label class="item">
-                <button class="button button-block button-positive" ng-click="registro()">
-                    Nuevo proyecto
+                <button class="button button-full button-positive" ng-click="registro()">
+                    Nuevo Proyecto
                 </button>
-
             </label>
         </div>
-
     </ion-content>
-
-</ion-view>
+</ion-view
