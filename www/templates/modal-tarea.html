@@ -12,10 +12,8 @@
             </label>
 
             <label class="item item-input item-select">
-            <div class="input-label">
-                Priority
-            </div>
-            <select>
+            <input type="text" placeholder="Priority" ng-model="Tarea.Prioridad">
+            <select >
                 <option>Blue</option>
                 <option>Green</option>
                 <option>Yellow</option>
@@ -23,10 +21,8 @@
             </select>
             </label>
             <label class="item item-input item-select">
-                <div class="input-label">
-                    State
-                </div>
-                <select>
+                <input type="number" placeholder="State" ng-model="Tarea.Estado">
+                <select >
                     <option>1</option>
                     <option>2</option>
                     <option>3</option>
