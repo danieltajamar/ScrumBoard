@@ -2,13 +2,15 @@
     <ion-content>
         <div class="list">
 
-            <label class="item item-input">
-                <input type="text" placeholder="Nombre del Proyecto"  ng-model="Proyecto.Nombre">
-            </label>
 
             <label class="item item-input">
-                <input type="password" placeholder="Password" ng-model="Proyecto.Password">
+                <input type="text" placeholder="Proyecto" ng-model="Proyecto.Nombre">
             </label>
+            <label class="item item-input">
+                <input type="password" placeholder="Password" ng-model="Proyecto.Password"   >
+            </label>
+
+
             <label class="item">
                 <button class="button button-block button-positive" ng-click="registro()">
                     Nuevo proyecto
