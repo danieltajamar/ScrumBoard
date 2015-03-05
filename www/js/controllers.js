@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
                     });
                     if(res.length>0){
                         localStorage.proyecto= JSON.stringify(res[0]);
-                        //$state.go("tab.blocs");
+                        $state.go("tasks.todo");
                     }
                     else{
                         $ionicPopup.alert({
@@ -58,7 +58,9 @@ angular.module('starter.controllers', [])
     })
 
     .controller('RegistroCtrl', function($scope, $http, $state, $ionicLoading, $ionicPopup) {
+
         $scope.proyecto={};
+
         $scope.registro= function(){
             var url= "https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
 
@@ -95,7 +97,8 @@ angular.module('starter.controllers', [])
             );
         }
 
-    })/*
+    });
+    /*
 
 //Código para llamar al modal de proyecto
 angular.module('testApp', ['ionic'])
@@ -124,98 +127,6 @@ angular.module('testApp', ['ionic'])
         $scope.$on('modal.removed', function() {
             // Execute action
         });
-    })
-/*
-    .controller('BlocsCtrl', function($scope,Tareas,Bbdd,Conexion) {
-        $scope.Tareas=[];
-
-        var pr=JSON.parse(localStorage.Proyecto);
-
-        if(Conexion.getEstado()){
-            Tareas.getTareasPorProyecto(pr.Nombre).then(function(res){
-
-                    $scope.Tareas=res;
-                    Bbdd.guardarBlocs(res);
-
-
-                },
-                function(err){
-                    alert(err);
-
-                });
-
-        }
-        else{
-
-            Bbdd.().then(function(res){
-                $scope.blocs=res;
-
-
-            },function(err){
-                alert(err);
-
-            });
-
-        }
-
-    })
-
-    .controller('BlocDetailCtrl', function($scope, $stateParams,Conexion, Tareas,Bbdd) {
-
-        $scope.tareas=[];
-
-        if(Conexion.getEstado()) {
-            Tareas.getTareasPorProyecto($stateParams.proyecto).then(
-                function (res) {
-                    $scope.tareas = res;
-                    Bbdd.guardarTareas(res);
-
-                },
-                function (err) {
-                    alert(err);
-                }
-            );
-
-        }
-        else{
-            Bbdd.buscarBacklog($stateParams.blocId).then(
-                function (res) {
-                    $scope.tareas=res;
-                },
-                function(err){
-
-                    alert(err);
-                }
-
-            );
-
-        }
-
-    })
-*/
-//.controller('LoginCtrl', function($scope) {})
-
-.controller('ChatsCtrl', function($scope, Chats) {
-  $scope.chats = Chats.all();
-  $scope.remove = function(chat) {
-    Chats.remove(chat);
-  }
 })
 
-.controller('ChatDetailCtrl', function($scope, $stateParams, Chats) {
-  $scope.chat = Chats.get($stateParams.chatId);
-})
-
-.controller('FriendsCtrl', function($scope, Friends) {
-  $scope.friends = Friends.all();
-})
-
-.controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
-  $scope.friend = Friends.get($stateParams.friendId);
-})
-
-.controller('AccountCtrl', function($scope) {
-  $scope.settings = {
-    enableFriends: true
-  };
-});
+ */

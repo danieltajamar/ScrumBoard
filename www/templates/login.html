@@ -1,10 +1,15 @@
 
-<ion-view title="ScrumBoard">
-      <ion-content>
-            <div class="item item-body">
-              <img class="full-image" src="img\logoscrumb.png">
-            </div>
-            <div class="list">
+<ion-view title="ScrumBoard" hide-back-button="true" hide-nav-bar="true">
+
+    <ion-content has-header="true" padding="true">
+
+        <div class="item item-image" style="border:none;margin-top:5px;">
+            <img class="full-image" src="img\logoscrumb.png">
+        </div>
+        <div class="list list-inset">
+
+
+
             <label class="item item-input">
                 <input type="text" placeholder="Proyecto" ng-model="Proyecto.Nombre">
             </label>
@@ -12,16 +17,17 @@
                 <input type="password" placeholder="Password" ng-model="Proyecto.Password">
             </label>
 
-            <label class="item">
-                <button class="button button-block button-positive" ng-click="iniciarSesion()">
-                    Entrar
-                </button>
-            </label>
-            <label class="item">
-                <button class="button button-block button-positive" ui-sref="noLogin.registro">
-                    Crear
-                </button>
-            </label>
-         </div>
-      </ion-content>
+
+            <button class="button button-full button-positive" ng-click="iniciarSesion()">
+                Iniciar Sesion
+            </button>
+
+            <button class="button button-full button-positive" ui-sref="noLogin.registro">
+                Crear Proyecto
+            </button>
+
+        </div>
+
+    </ion-content>
+
 </ion-view>
