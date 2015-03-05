@@ -33,7 +33,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
     .state('noLogin', {
         url: "/noLogin",
         abstract: true,
-        templateUrl: "templates/noLogin.html"
+        templateUrl: "templates/nologin.html"
     })
 
     // vista de login de proyecto
