@@ -106,8 +106,8 @@ angular.module('starter.services', [])
 
         return {
             validarProyecto: function (Proyecto) {
-                var query = "?$filter=Proyecto eq '" + Proyecto.Nombre +
-                    "' and Contraseña eq '" + Proyecto.Contraseña + "'";
+                var query = "?$filter=Nombre eq '" + Proyecto.Nombre +
+                    "' and Password eq '" + Proyecto.Password + "'";
                 var request = $http(
                     {
                         url: url + query,
@@ -177,10 +177,10 @@ angular.module('starter.services', [])
             getEstado: function () {
 
                 try {
-                     var conn = navigator.connection.type;
+                    /* var conn = navigator.connection.type;
 
                      if (conn == Connection.NONE || conn == Connection.UNKNOWN ||
-                     conn == Connection.CELL)
+                     conn == Connection.CELL)*/
                      return false;
 
                 } catch (e) {
@@ -191,6 +191,7 @@ angular.module('starter.services', [])
 
         }
     })
+
     .factory('Bbdd',function($q){
 
         var busqueda;
@@ -308,4 +309,5 @@ angular.module('starter.services', [])
             }
 
         }
-    });
+    }
+    );

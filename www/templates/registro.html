@@ -1,30 +1,16 @@
-<ion-view title="AWNotepad Nueva cuenta">
+<ion-view title="Nuevo Proyecto">
     <ion-content>
         <div class="list">
 
             <label class="item item-input">
-                <input type="text" placeholder="Nombre"
-                       ng-model="usuario.nombre">
+                <input type="text" placeholder="Nombre del Proyecto"  ng-model="Proyecto.Nombre">
             </label>
+
             <label class="item item-input">
-                <input type="text" placeholder="Apellidos"
-                       ng-model="usuario.apellidos"
-                        >
-            </label>
-            <label class="item item-input">
-                <input type="text" placeholder="Email"
-                       ng-model="usuario.email"
-                        >
-            </label>
-            <label class="item item-input">
-                <input type="password" placeholder="Password"
-                       ng-model="usuario.password"
-                        >
+                <input type="password" placeholder="Password" ng-model="usuario.password">
             </label>
             <label class="item">
-                <button class="button button-block button-positive"
-                        ng-click="registro()"
-                        >
+                <button class="button button-block button-positive" ng-click="registro()">
                     Nueva cuenta
                 </button>
 
