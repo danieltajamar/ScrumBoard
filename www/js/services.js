@@ -96,7 +96,7 @@ angular.module('starter.services', [])
 // Baja=1, Media=2, Alta=3
 
     .factory('Proyectos', function ($http, $q) {
-        var url = "https://proyectoscrumboard.azure-mobile.net/Proyectos";
+        var url = "https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
 
         $http.defaults.headers.common = {
             'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
@@ -104,38 +104,32 @@ angular.module('starter.services', [])
 
         };
 
-        return {
-            validarProyecto: function (Proyecto) {
-                var query = "?$filter=Nombre eq '" + Proyecto.Nombre +
-                    "' and Password eq '" + Proyecto.Password + "'";
-                var request = $http(
-                    {
-                        url: url + query,
-                        method: 'get'
+        return{
+            validarProyecto: function(proyecto){
+                var query="?filter=Nombre eq '"+proyecto.Nombre+"' and Password eq '"+proyecto.Password+"'";
 
-                    });
+                var request=$http({
+                    url:url+query,
+                    method:'get'
+                });
 
-                return request.then(ok, err);
+                return request.then(ok,err);
             }
         };
 
-        function ok(resp) {
+        function ok(resp){
             return resp.data;
-
         }
-
-        function err(resp) {
-            if (!angular.isObject(resp.data) || !resp.data.message) {
-                return ($q.reject("Error desconocido"));
-
+        function err(resp){
+            if(!angular.isObject(resp.data) || !resp.data.message){
+                return($q.reject("Error desconocido"));
             }
             return ($q.reject(resp.data.message));
         }
-
     })
 
     .factory('Tareas', function ($http, $q) {
-        var url = "https://proyectoscrumboard.azure-mobile.net/Tareas";
+        var url = "https://proyectoscrumboard.azure-mobile.net/tables/Tareas";
         $http.defaults.headers.common = {
             'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
             'Access-Control-Allow-Origin': '*'
