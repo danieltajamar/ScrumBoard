@@ -56,43 +56,43 @@ angular.module('starter.controllers', [])
 
     })
 
-    .controller('RegistroCtrl', function($scope,$http,$state,$ionicLoading,$ionicPopup) {
+    .controller('RegistroCtrl', function($scope, $http, $state, $ionicLoading, $ionicPopup) {
         $scope.proyecto={};
+        $scope.registro= function(){
+            var url= "https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
 
-        $scope.registro=function(){
-            var url="https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
             $http.defaults.headers.common={
                 'X-ZUMO-APPLICATION':'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
                 'Access-Control-Allow-Origin':'*'
-
             };
-        $ionicLoading.show(
-            {
-                template:'Creando proyecto'
-            }
-        );
 
-        $http.post(url,$scope.proyecto).then(
-            function(res){
-                $ionicLoading.hide();
-                $ionicPopup.alert({
-                    template:'Proyecto creado',
-                    title:'Exito!'
-                });
+            $ionicLoading.show(
+                {
+                    template:'Creando Proyecto'
+                }
+            );
 
-                $state.go("noLogin.login");
+            $http.post(url,$scope.proyecto).then(
+                function(res){
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({
+                        template:'Proyecto Creado',
+                        title:'Exito!'
+                    });
 
-            }
-            ,
-            function(err){
-                $ionicLoading.hide();
-                $ionicPopup.alert({
-                    template:'Error creando proyecto',
-                    title:'Error!'
-                });
-            }
-        );
-    }
+                    $state.go("noLogin.login");
+
+                }
+                ,
+                function(err){
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({
+                        template:'Error en creaccion',
+                        title:'Error!'
+                    });
+                }
+            );
+        }
 
     });
 //Código para llamar al modal de proyecto
