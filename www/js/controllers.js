@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
                     });
                     if(res.length>0){
                         localStorage.proyecto= JSON.stringify(res[0]);
-                   //     $state.go("tasks.todo");
+                        $state.go("tasks.todo");
                     }
                     else{
                         $ionicPopup.alert({
