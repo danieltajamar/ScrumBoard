@@ -6,7 +6,7 @@ angular.module('starter.controllers', [])
         $scope.iniciarSesion=function(){
 
             $ionicLoading.show({
-                template:'Validando Proyecto'
+                template:'Validando proyecto'
             });
 
             Proyectos.validarProyecto($scope.proyecto).then(
@@ -19,7 +19,7 @@ angular.module('starter.controllers', [])
                     });
                     if(res.length>0){
                         localStorage.proyecto= JSON.stringify(res[0]);
-                        $state.go("tasks.todo");
+                        //$state.go("tab.blocs");
                     }
                     else{
                         $ionicPopup.alert({
@@ -31,13 +31,14 @@ angular.module('starter.controllers', [])
                 function(err){
                     $ionicLoading.hide();
                     $ionicPopup.alert({
-                        template:'Error validando proyecto',
+                        template:'Error al validar proyecto',
                         title: 'Error!'
                     });
                 }
-            )}
+            )};
 
-/* ARREGLAR, controlador para iniciar sesion si el dispositivo ya recuerda la sesion de este proyecto
+/*
+ //ARREGLAR, controlador para iniciar sesion si el dispositivo ya recuerda la sesion de este proyecto
         $ionicPlatform.ready(function(){
             if(localStorage.proyecto){
                 $scope.proyecto=JSON.parse(localStorage.proyecto);
@@ -87,14 +88,15 @@ angular.module('starter.controllers', [])
                 function(err){
                     $ionicLoading.hide();
                     $ionicPopup.alert({
-                        template:'Error en creaccion',
+                        template:'El Proyecto ya exite, elige otro nombre',
                         title:'Error!'
                     });
                 }
             );
         }
 
-    });
+    })/*
+
 //Código para llamar al modal de proyecto
 angular.module('testApp', ['ionic'])
     .controller('ProyectoCtrl', function($scope, $ionicModal) {
