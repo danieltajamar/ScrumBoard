@@ -1,15 +1,10 @@
 <ion-view view-title="Done!">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-toggle">
-        Enable Friends
-        <label class="toggle">
-          <input type="checkbox" ng-model="settings.enableFriends">
-          <div class="track">
-            <div class="handle"></div>
-          </div>
-        </label>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content>
+        <ion-list>
+            <ion-item class="item" ng-repeat="item in done" type="item-text-wrap" href="#/tab/done/{{item.id}}">
+                <h2>{{Tarea.Nombre}}</h2>
+                <h3>{{Tarea.Descripcion}}</h3>
+            </ion-item>
+        </ion-list>
+    </ion-content>
 </ion-view>

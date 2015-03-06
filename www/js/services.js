@@ -8,7 +8,6 @@ angular.module('starter.services',[])
         $http.defaults.headers.common = {
             'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
             'Access-Control-Allow-Origin': '*'
-
         };
 
         return{
@@ -33,14 +32,13 @@ angular.module('starter.services',[])
             }
             return ($q.reject(resp.data.message));
         }
-    });
-/*
+    })
+
     .factory('Tareas', function ($http, $q) {
         var url = "https://proyectoscrumboard.azure-mobile.net/tables/Tareas";
         $http.defaults.headers.common = {
             'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
             'Access-Control-Allow-Origin': '*'
-
         };
 
         return {
@@ -50,38 +48,34 @@ angular.module('starter.services',[])
                     {
                         url: url + query,
                         method: 'get'
-
                     });
 
                 return request.then(ok, err);
-
             }
-
         };
 
         function ok(resp) {
             return resp.data;
-
         }
 
         function err(resp) {
             if (!angular.isObject(resp.data) || !resp.data.message) {
                 return ($q.reject("Error desconocido"));
-
             }
             return ($q.reject(resp.data.message));
         }
     })
-    .factory('Conexion', function () {
+
+     .factory('Conexion', function () {
 
         return {
             getEstado: function () {
 
                 try {
-                    /* var conn = navigator.connection.type;
+                     var conn = navigator.connection.type;
 
                      if (conn == Connection.NONE || conn == Connection.UNKNOWN ||
-                     conn == Connection.CELL)*//*
+                     conn == Connection.CELL)//*
                      return false;
 
                 } catch (e) {
@@ -91,8 +85,8 @@ angular.module('starter.services',[])
             }
 
         }
-    });*/
-/*
+    })
+
     .factory('Bbdd',function($q){
 
         var busqueda;
@@ -192,24 +186,16 @@ angular.module('starter.services',[])
                                     Proyecto:res.rows.item(i).Proyecto
                                 };
                                 tareas.push(o);
-
                             }
-
                             deferred.resolve(tareas);
-
                         },
                         function(tran,err){
                             deferred.reject(err);
-
                         }
                     );
-
                 });
                 return deferred.promise;
-
             }
-
         }
     }
     );
-*/

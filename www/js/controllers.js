@@ -26,7 +26,6 @@ angular.module('starter.controllers', [])
                             template:'Credenciales incorrectas',
                             title:'Error!'
                         });
-
                     }
                 },
                 function(err){
@@ -37,7 +36,6 @@ angular.module('starter.controllers', [])
                     });
                 }
             )};
-
 
 /*
  //ARREGLAR, controlador para iniciar sesion si el dispositivo ya recuerda la sesion de este proyecto
@@ -50,13 +48,13 @@ angular.module('starter.controllers', [])
 
                 else
                 {
-                    $state.go("tasks.todo");
+             //       $state.go("tab.blocs");
 
                 }
 
             }
-        });
-*/
+        });*/
+
     })
 
     .controller('RegistroCtrl', function($scope, $http, $state, $ionicLoading, $ionicPopup) {

@@ -1,10 +1,9 @@
 <ion-view view-title="To-Do">
   <ion-content>
     <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.id}}">
-        <img ng-src="{{chat.face}}">
-        <h2>{{chat.name}}</h2>
-        <p>{{chat.lastText}}</p>
+      <ion-item class="item item-icon-right" ng-repeat="todo in todo" type="item-text-wrap" href="#/tab/todo/{{todo.id}}">
+        <h2>{{Tarea.Nombre}}</h2>
+        <p>{{Tarea.Descripcion}}</p>
         <i class="icon ion-chevron-right icon-accessory"></i>
 
         <ion-option-button class="button-assertive" ng-click="remove(chat)">
