@@ -3,38 +3,47 @@
 
 angular.module('starter.services',[])
 
-    .factory('Proyectos', function($http, $q){
+    .factory('Proyectos', function ($http, $q) {
         var url= "https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
         $http.defaults.headers.common = {
             'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
             'Access-Control-Allow-Origin': '*'
+
         };
 
-        return{
-            validarProyecto: function(proyecto){
-                var query="?$filter=Nombre eq '"+proyecto.Nombre+"' and Password eq '"+proyecto.Password+"'";
+        return {
+            validarProyecto: function (proyecto) {
+                var query = "?$filter=nombre eq '" + proyecto.nombre +
+                    "' and password eq '" + proyecto.password + "'";
+                var request = $http(
+                    {
+                        url: url + query,
+                        method: 'get'
 
-                var request=$http({
-                    url:url+query,
-                    method:'get'
-                });
+                    });
 
-                return request.then(ok,err);
+                return request.then(ok, err);
             }
         };
 
-        function ok(resp){
+        function ok(resp) {
             return resp.data;
+
         }
-        function err(resp){
-            if(!angular.isObject(resp.data) || !resp.data.message){
-                return($q.reject("Error desconocido"));
+
+        function err(resp) {
+            if (!angular.isObject(resp.data) || !resp.data.message) {
+                return ($q.reject("Error desconocido"));
+
             }
             return ($q.reject(resp.data.message));
         }
+
     })
 
+
     .factory('Tareas', function ($http, $q) {
+
         var url = "https://proyectoscrumboard.azure-mobile.net/tables/Tareas";
         $http.defaults.headers.common = {
             'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
@@ -42,7 +51,7 @@ angular.module('starter.services',[])
         };
 
         return {
-            getTareasPorProyecto: function (Proyecto) {
+            getTareas: function (Proyecto) {
                 var query = "?$filter=Proyecto eq '" + Proyecto + "'";
                 var request = $http(
                     {
@@ -75,7 +84,7 @@ angular.module('starter.services',[])
                      var conn = navigator.connection.type;
 
                      if (conn == Connection.NONE || conn == Connection.UNKNOWN ||
-                     conn == Connection.CELL)//*
+                     conn == Connection.CELL)
                      return false;
 
                 } catch (e) {

@@ -1,30 +1,26 @@
 angular.module('starter.controllers', [])
 
-    .controller('LoginCtrl', function($scope, $state, $ionicLoading, $ionicPopup, Proyectos) {
+    .controller('LoginCtrl', function($scope,$ionicLoading,$ionicPopup, $state,$ionicPlatform,Proyectos) {
         $scope.proyecto={};
 
         $scope.iniciarSesion=function(){
+            $ionicLoading.show(
+                {
+                    template:'Validando Proyecto...'
 
-            $ionicLoading.show({
-                template:'Validando proyecto'
-            });
+                });
 
             Proyectos.validarProyecto($scope.proyecto).then(
-
                 function(res){
                     $ionicLoading.hide();
-                    $ionicPopup.alert({
-                        template:'Login correcto',
-                        title: 'Exito!'
-                    });
-                    if(res.length>0){
-                        localStorage.proyecto= JSON.stringify(res[0]);
-                        $state.go("tasks.todo");
+                    if(res.length>0) {
+                        localStorage.proyecto = JSON.stringify(res[0]);
+                         $state.go("tasks.todo");
                     }
                     else{
                         $ionicPopup.alert({
                             template:'Credenciales incorrectas',
-                            title:'Error!'
+                            title: '¡Error!'
                         });
                     }
                 },
@@ -32,55 +28,57 @@ angular.module('starter.controllers', [])
                     $ionicLoading.hide();
                     $ionicPopup.alert({
                         template:'Error al validar proyecto',
-                        title: 'Error!'
+                        title: '¡Error!'
                     });
-                }
-            )};
+                });
+        };
 
-/*
- //ARREGLAR, controlador para iniciar sesion si el dispositivo ya recuerda la sesion de este proyecto
-        $ionicPlatform.ready(function(){
-            if(localStorage.proyecto){
-                $scope.proyecto=JSON.parse(localStorage.proyecto);
-                if(Conexion.getEstado()){
-                    $scope.iniciarSesion();
-                }
+        /*
+         $ionicPlatform.ready(function(){
+         if(localStorage.proyecto){
+         $scope.proyecto=JSON.parse(localStorage.proyecto);
+         if(Conexion.getEstado()){
+         $scope.iniciarSesion();
+         }
 
-                else
-                {
-             //       $state.go("tab.blocs");
+         else
+         {
+         $state.go("tab.blocs");
 
-                }
 
-            }
-        });*/
+         }
+         }
 
+         });
+         */
     })
-
     .controller('RegistroCtrl', function($scope, $http, $state, $ionicLoading, $ionicPopup) {
 
         $scope.proyecto={};
-
-        $scope.registro= function(){
+        $scope.registro=function(){
             var url= "https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
+            $http.defaults.headers.common = {
+                'X-ZUMO-APPLICATION': 'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
+                'Access-Control-Allow-Origin': '*'
 
-            $http.defaults.headers.common={
-                'X-ZUMO-APPLICATION':'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
-                'Access-Control-Allow-Origin':'*'
             };
 
             $ionicLoading.show(
                 {
-                    template:'Creando Proyecto'
+                    template:'Creando Proyecto...'
+
                 }
+
             );
 
             $http.post(url,$scope.proyecto).then(
                 function(res){
                     $ionicLoading.hide();
+
                     $ionicPopup.alert({
-                        template:'Proyecto Creado',
-                        title:'Exito!'
+                        template:'Proyecto creado con exito',
+                        title: '¡Exito!'
+
                     });
 
                     $state.go("noLogin.login");
@@ -89,16 +87,61 @@ angular.module('starter.controllers', [])
                 ,
                 function(err){
                     $ionicLoading.hide();
+
                     $ionicPopup.alert({
-                        template:'El Proyecto ya exite, elige otro nombre',
-                        title:'Error!'
+                        template:'El proyecto ya existe',
+                        title: '¡Error!'
+
                     });
+
                 }
+
             );
+
+        }
+
+    })
+
+    .controller('TareasCtrl', function($scope,Tareas,Bbdd,Conexion) {
+
+        $scope.tareas=[];
+
+        var pr=JSON.parse(localStorage.proyecto);
+
+
+        if(Conexion.getEstado()){
+
+            Tareas.getTareas(pr.id).then(function(res){
+
+            $scope.tareas=res;
+            Bbdd.guardarTareas(res);
+
+
+        },
+        function(err){
+            alert(err);
+
+        });
+
+        }
+
+        else{
+
+            Bbdd.obtenerTareas().then(function(res){
+
+                $scope.tareas=res;
+
+            },function(err){
+
+                alert(err);
+
+            });
         }
 
     });
+
     /*
+
 
 //Código para llamar al modal de proyecto
 angular.module('testApp', ['ionic'])

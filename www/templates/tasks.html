@@ -3,24 +3,27 @@ Create tabs with an icon and label, using the tabs-positive style.
 Each tab's child <ion-nav-view> directive will have its own
 navigation history that also transitions its views in and out.
 -->
+
+
+</ion-nav-bar>
 <ion-tabs class="tabs-icon-top tabs-color-active-positive">
     <!-- Dashboard Tab -->
-    <ion-tab title="Backlog" icon-off="ion-ios7-filing" icon-on="ion-ios7-filing" href="#/tasks/backlog">
+    <ion-tab title="Backlog" icon-off="ion-ios7-pulse" icon-on="ion-ios7-filing" href="#/tasks/backlog">
         <ion-nav-view name="tasks-backlog"></ion-nav-view>
     </ion-tab>
 
     <!-- Chats Tab -->
-    <ion-tab title="To-Do" icon-off="ion-ios7-gear-outline" icon-on="ion-ios7-gear" href="#/tasks/todo">
+    <ion-tab title="To-Do" icon-off="ion-ios7-chatboxes-outline" icon-on="ion-ios7-gear" href="#/tasks/to-do">
         <ion-nav-view name="tasks-todo"></ion-nav-view>
     </ion-tab>
 
     <!-- Friends Tab -->
-    <ion-tab title="In Review" icon-off="ion-ios7-chatboxes-outline" icon-on="ion-ios7-chatboxes" href="#/tasks/inreview">
+    <ion-tab title="In Review" icon-off="ion-ios7-heart-outline" icon-on="ion-ios7-chatboxes" href="#/tasks/in-review">
         <ion-nav-view name="tasks-inreview"></ion-nav-view>
     </ion-tab>
 
     <!-- Account Tab -->
-    <ion-tab title="Done!" icon-off="ion-ios7-heart-outline" icon-on="ion-ios7-heart" href="#/tasks/done">
+    <ion-tab title="Done!" icon-off="ion-ios7-gear-outline" icon-on="ion-ios7-heart" href="#/tasks/done">
         <ion-nav-view name="tasks-done"></ion-nav-view>
     </ion-tab>
 
