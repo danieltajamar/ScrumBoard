@@ -86,7 +86,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       })
 
       .state('tasks.inreview', {
-          url: '/in-review',
+          url: '/inreview',
           views: {
               'tasks-inreview': {
                   templateUrl: 'templates/tasks-inreview.html',
