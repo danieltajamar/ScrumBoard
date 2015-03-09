@@ -68,7 +68,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
         .state('tasks.backlog', {
             url: '/backlog',
             views: {
-            'tab-dash': {
+            'tasks-backlog': {
                 templateUrl: 'templates/tasks-backlog.html',
                 controller: 'BacklogCtrl'
                 }
@@ -78,7 +78,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       .state('tasks.todo', {
           url: '/to-do',
           views: {
-              'tab-dash': {
+              'tasks-todo': {
                   templateUrl: 'templates/tasks-todo.html',
                   controller: 'To-doCtrl'
               }
@@ -88,7 +88,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       .state('tasks.inreview', {
           url: '/in-review',
           views: {
-              'tab-dash': {
+              'tasks-inreview': {
                   templateUrl: 'templates/tasks-inreview.html',
                   controller: 'in-reviewCtrl'
               }
@@ -98,7 +98,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       .state('tasks.done', {
           url: '/done',
           views: {
-              'tab-dash': {
+              'tasks-done': {
                   templateUrl: 'templates/tasks-done.html',
                   controller: 'DoneCtrl'
               }

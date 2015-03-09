@@ -1,26 +1,54 @@
 <ion-view view-title="Backlog">
+    <div class="bar bar-header">
+        <button class="button button-icon icon ion-navicon"></button>
+        <div class="h1 title">Backlog</div>
+        <button class="button button-clear button-positive">Añadir</button>
+    </div>
   <ion-content class="padding">
+
     <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
+      <div class="item item-right item-assertive">Tarea 1{{Tarea.Nombre}}
+          <i class="button button-icon ion-settings"></i>
+      </div>
       <div class="item item-body">
         <div>
-          There is a fire in <b>sector 3</b>
+          Este es el contenido de la Tarea 1</b>
         </div>
       </div>
     </div>
+
     <div class="list card">
-      <div class="item item-divider">Health</div>
+      <div class="item item-divider item-energized">Tarea 2</div>
       <div class="item item-body">
         <div>
-          You ate an apple today!
+          Contenido de la tarea!
         </div>
       </div>
     </div>
-    <div class="list card" ng-repeat="">
-      <div class="item item-divider">Upcoming</div>
+
+      <div class="list card">
+          <div class="item item-divider item-balanced">Tarea 3
+          </div>
+          <div class="item item-body">
+              <div>
+                  Este es el contenido de la Tarea 3</b>
+              </div>
+          </div>
+      </div>
+
+      <div class="list card">
+          <div class="item item-divider item-calm">Tarea 4</div>
+          <div class="item item-body">
+              <div>
+                  Contenido de la tarea!
+              </div>
+          </div>
+      </div>
+    <div class="list card" ng-repeat="backlog in backlog" href="#/tasks/backlog/{{Tarea.id}}">
+      <div class="item item-divider">{{Tarea.Nombre}}</div>
       <div class="item item-body">
         <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
+            {{Tarea.Descripcion}}
         </div>
       </div>
     </div>
