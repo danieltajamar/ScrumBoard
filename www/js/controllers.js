@@ -105,73 +105,88 @@ angular.module('starter.controllers', [])
     })
 
     .controller('TareasCtrl', function($scope,Tareas,Bbdd,Conexion) {
-
         $scope.tareas=[];
 
         var pr=JSON.parse(localStorage.proyecto);
 
-
         if(Conexion.getEstado()){
-
             Tareas.getTareas(pr.id).then(function(res){
 
-            $scope.tareas=res;
-            Bbdd.guardarTareas(res);
+                    $scope.tareas=res;
+                    Bbdd.guardarTareas(res);
 
 
-        },
-        function(err){
-            alert(err);
+                },
+                function(err){
+                    alert(err);
 
-        });
+                });
 
         }
-
         else{
 
             Bbdd.obtenerTareas().then(function(res){
-
                 $scope.tareas=res;
 
             },function(err){
-
                 alert(err);
 
             });
+
         }
 
+    })
+    .controller('CrearTareaCtrl', function($scope, $http, $state, $ionicLoading, $ionicPopup) {
+
+        $scope.tarea={};
+
+        $scope.optionsPrioridad = [
+            { label: 'Baja', value: 1 },
+            { label: 'Media', value: 2 },
+            { label: 'Alta', value: 3 }
+        ];
+
+        $scope.optionsEstado = [
+            { label: 'Backlog', value: 1 },
+            { label: 'To-Do', value: 2 },
+            { label: 'In-Review', value: 3 },
+            { label: 'Done!', value: 4 }
+        ];
+
+        $scope.crearTarea= function(){
+            var url= "https://proyectoscrumboard.azure-mobile.net/tables/Tareas";
+
+            $http.defaults.headers.common={
+                'X-ZUMO-APPLICATION':'JvrxlvWbdurQYUkRlACFMOcXBFbrtD91',
+                'Access-Control-Allow-Origin':'*'
+            };
+
+            $ionicLoading.show(
+                {
+                    template:'Creando Tarea'
+                }
+            );
+
+            $http.post(url,$scope.tarea).then(
+                function(res){
+                    $scope.tarea.proyecto= JSON.parse(localStorage.proyecto);
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({
+                        template:'Tarea Creada',
+                        title:'Exito!'
+                    });
+
+                    $state.go("tasks.todo");
+
+                }
+                ,
+                function(err){
+                    $ionicLoading.hide();
+                    $ionicPopup.alert({
+                        template:'Problemas al crear Tarea',
+                        title:'Error!'
+                    });
+                }
+            );
+        }
     });
-
-    /*
-
-
-//Código para llamar al modal de proyecto
-angular.module('testApp', ['ionic'])
-    .controller('ProyectoCtrl', function($scope, $ionicModal) {
-        $ionicModal.fromTemplateUrl('modal-proyecto.html', {
-            scope: $scope,
-            animation: 'slide-in-up'
-        }).then(function(modal) {
-            $scope.modal = modal;
-        });
-        $scope.openModal = function() {
-            $scope.modal.show();
-        };
-        $scope.closeModal = function() {
-            $scope.modal.hide();
-        };
-        //Cleanup the modal when we're done with it!
-        $scope.$on('$destroy', function() {
-            $scope.modal.remove();
-        });
-        // Execute action on hide modal
-        $scope.$on('modal.hidden', function() {
-            // Execute action
-        });
-        // Execute action on remove modal
-        $scope.$on('modal.removed', function() {
-            // Execute action
-        });
-})
-
- */
