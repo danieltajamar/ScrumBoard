@@ -1,10 +1,59 @@
-<ion-view view-title="In Review">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item-avatar" ng-repeat="inreview in inreview" type="item-text-wrap" href="#/tasks/inreview/{{inreview.id}}">
-        <img ng-src="{{Tarea.Nombre}}">
-        <h2>{{Tarea.Descripcion}}</h2>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+<ion-view view-title="In-Review">
+
+    <ion-content class="padding">
+
+        <div class="list card">
+            <div class="item item-divider item-energized ng-repeat='backlog in backlog'">Tarea 1
+
+            </div>
+            <div class="item item-body">
+                <div>
+                    Este es el contenido de la Tarea 1</b>
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-trash-a"></i>
+                    Borrar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-edit"></i>
+                    Editar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Mover
+                </a>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider item-energized">Tarea 2</div>
+            <div class="item item-body">
+                <div>
+                    Contenido de la tarea!
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-trash-a"></i>
+                    Borrar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-edit"></i>
+                    Editar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Mover
+                </a>
+            </div>
+        </div>
+
+
+
+
+
+    </ion-content>
 </ion-view>
+

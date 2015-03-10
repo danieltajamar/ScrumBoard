@@ -1,15 +1,100 @@
 <ion-view view-title="To-Do">
-  <ion-content>
-    <ion-list>
-      <ion-item class="item item-icon-right" ng-repeat="todo in todo" type="item-text-wrap" href="#/tab/todo/{{todo.id}}">
-        <h2>{{Tarea.Nombre}}</h2>
-        <p>{{Tarea.Descripcion}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
 
-        <ion-option-button class="button-assertive" ng-click="remove(chat)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list>
-  </ion-content>
+    <ion-content class="padding">
+
+        <div class="list card">
+            <div class="item item-divider item-assertive ng-repeat='backlog in backlog'">Tarea 1
+            </div>
+            <div class="item item-body">
+                <div>
+                    Este es el contenido de la Tarea 1</b>
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-trash-a"></i>
+                    Borrar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-edit"></i>
+                    Editar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Mover
+                </a>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider item-balanced">Tarea 2</div>
+            <div class="item item-body">
+                <div>
+                    Contenido de la tarea!
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-trash-a"></i>
+                    Borrar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-edit"></i>
+                    Editar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Mover
+                </a>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider item-balanced">Tarea 3 </div>
+            <div class="item item-body">
+                <div>
+                    Este es el contenido de la Tarea 3</b>
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-trash-a"></i>
+                    Borrar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-edit"></i>
+                    Editar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Mover
+                </a>
+            </div>
+        </div>
+
+        <div class="list card">
+            <div class="item item-divider item-assertive">Tarea 4</div>
+            <div class="item item-body">
+                <div>
+                    Contenido de la tarea!
+                </div>
+            </div>
+            <div class="item tabs tabs-secondary tabs-icon-left">
+                <a class="tab-item" href="#">
+                    <i class="icon ion-trash-a"></i>
+                    Borrar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-edit"></i>
+                    Editar
+                </a>
+                <a class="tab-item" href="#">
+                    <i class="icon ion-share"></i>
+                    Mover
+                </a>
+            </div>
+        </div>
+
+    </ion-content>
 </ion-view>
+
