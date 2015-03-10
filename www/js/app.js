@@ -103,6 +103,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
                   controller: 'DoneCtrl'
               }
           }
+      })
+      .state('noLogin.crearTarea', {
+          url: '/crearTarea',
+          views: {
+              'loginView': {
+                  templateUrl: 'templates/crearTarea.html',
+                  controller: 'CrearTareaCtrl'
+              }
+          }
       });
 
 

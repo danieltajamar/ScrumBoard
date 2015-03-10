@@ -1,0 +1,40 @@
+
+<ion-view title="Crear Tarea">
+
+    <ion-content>
+        <div class="list">
+
+            <label class="item item-input">
+                <input type="text" placeholder="Nombre" ng-model="tarea.nombre">
+            </label>
+            <label class="item item-input">
+                <input type="text" placeholder="Descripcion" ng-model="tarea.descripcion">
+            </label>
+
+            <label class="item item-input item-select">
+                Prioridad
+                <select ng-model="tarea.prioridad" ng-options="opt as opt.label for opt in optionsPrioridad">
+                </select>
+            </label>
+
+            <label class="item item-input item-select">
+                Estado
+                <select ng-model="tarea.estado" ng-options="opt as opt.label for opt in optionsEstado">
+                </select>
+            </label>
+
+            <label class="item">
+                <button class="button button-block button-positive" ng-click="crearTarea()">
+                    Crear
+                </button>
+            </label>
+            <label class="item">
+                <button class="button button-block button-positive" ui-sref="tasks.todo">
+                    Volver
+                </button>
+            </label>
+        </div>
+
+    </ion-content>
+
+</ion-view>

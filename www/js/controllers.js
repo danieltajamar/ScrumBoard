@@ -55,6 +55,8 @@ angular.module('starter.controllers', [])
     .controller('RegistroCtrl', function($scope, $http, $state, $ionicLoading, $ionicPopup) {
 
         $scope.proyecto={};
+
+
         $scope.registro=function(){
             var url= "https://proyectoscrumboard.azure-mobile.net/tables/Proyectos";
             $http.defaults.headers.common = {
