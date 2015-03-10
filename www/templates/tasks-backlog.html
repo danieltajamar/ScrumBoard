@@ -1,31 +1,22 @@
 <ion-view view-title="Backlog">
-
+    <div class="bar bar-header">
+        <button class="button button-icon icon ion-navicon"></button>
+        <div class="h1 title">Backlog</div>
+        <button class="button button-clear button-positive">Añadir</button>
+    </div>
   <ion-content class="padding">
 
     <div class="list card">
-      <div class="item item-divider item-assertive ng-repeat="backlog in backlog">Tarea 1
-
+      <div class="item item-right item-assertive">Tarea 1{{Tarea.Nombre}}
+          <button class="button button-rbutton-positive">
+              <i class="icon ion-ios7-telephone"></i>
+          </button> <i class="button button-icon ion-settings"></i>
       </div>
       <div class="item item-body">
         <div>
           Este es el contenido de la Tarea 1</b>
-
         </div>
       </div>
-        <div class="item tabs tabs-secondary tabs-icon-left">
-            <a class="tab-item" href="#">
-                <i class="icon ion-trash-a"></i>
-                Borrar
-            </a>
-            <a class="tab-item" href="#">
-                <i class="icon ion-edit"></i>
-                Editar
-            </a>
-            <a class="tab-item" href="#">
-                <i class="icon ion-share"></i>
-                Mover
-            </a>
-        </div>
     </div>
 
     <div class="list card">
@@ -38,7 +29,8 @@
     </div>
 
       <div class="list card">
-          <div class="item item-divider item-balanced">Tarea 3 </div>
+          <div class="item item-divider item-balanced">Tarea 3
+          </div>
           <div class="item item-body">
               <div>
                   Este es el contenido de la Tarea 3</b>
